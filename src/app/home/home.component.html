@@ -1,0 +1,50 @@
+<section class="mt-5">
+
+  <div class="container">
+    <input type="search" placeholder="search..." class="form-control w-50 m-auto" [(ngModel)]="anyMovice">
+<!-- <app-slider></app-slider> -->
+
+  @if (ListMovices.length > 0) {
+  <h2 class="fw-bolder p-3 text-white">All movies</h2>
+
+}
+  <div class="row  g-3">
+    @for( product of ListMovices|search: anyMovice  ;track  product.id){
+      <div class="col-md-4 col-sm-6 col-lg-3   overflow-hidden   ">
+
+        <div class="layer  position-relative  movie h-100"  >
+          <div class="image  ">
+            <img [src]="'https://image.tmdb.org/t/p/w500'+product.poster_path" class="w-100 "  [alt]="product.title">
+          </div>
+
+          <div class="caption text-center  bg-light p-1  ">
+            @if (product.title) {
+              <h3 class="fw-bold ">{{product.title |cuttext:2}}</h3>
+            }@else {
+              <h3 class="fw-bold ">{{product.name|cuttext:2 }}</h3>
+            }
+            <p class=" text-main">{{product.media_type}}</p>
+            <p class=" text-main">{{product.overview |cuttext : 5}}</p>
+
+            <span class="discount position-absolute  m-3 text-light p-1"
+            [ngClass]="product.popularity >400 ? 'bg-danger' :'bg-success'">{{product.popularity}}</span>
+          <span class="stock position-absolute  m-3  text-light p-1"
+          [ngClass]="product.vote_count >3 ? 'bg-info' :'bg-warning'">{{product.vote_count}}</span>
+          @for (star of [1,2,3,4,5]; track $index) {
+
+            <i [class.fa-solid]="product.vote_average-5 >=star" class="fa-regular fa-star rating-color mb-5"></i>
+          }
+            <div class="showMovie d-flex justify-content-around align-items-center overflow-hidden ">
+              <button (click)="handleNavigation(product.id)" class="btn1 btn main-btn ">Show movie</button>
+
+            </div>
+          </div>
+        </div>
+    </div>
+    }
+
+  </div>
+</div>
+
+</section>
+

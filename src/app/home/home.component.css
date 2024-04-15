@@ -1,0 +1,29 @@
+.discount{
+  top: 10%;
+  right: -50%;
+  transition: all 1s;
+}
+.stock{
+  top: 0%;
+  right: -50%;
+  transition: all 1s;
+}
+.showMovie .btn1{
+  position: absolute;
+  bottom: -10%;
+  transition: all 1s;
+}
+
+.layer:hover .btn1{
+  bottom: 2%;
+}
+
+
+.layer:hover .stock {
+  top: 10%;
+  right: 0;
+}
+.layer:hover .discount{
+  top: 0;
+  right: 0;
+}

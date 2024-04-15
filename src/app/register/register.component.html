@@ -1,0 +1,114 @@
+<section>
+  <div class="container p-5 w-50 m-auto shadow border  rounded bg-light mt-5">
+    <h1 class="fw-bolder text-primary">Register :</h1>
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="registerForm" (ngSubmit)="handleregisterForm()">
+          <div class="form-item m-auto">
+            <label for="name">User Name </label>
+            <input
+             type="text"
+             name="name"
+              id="name"
+              class="form-control"
+              formControlName="userName"
+              />
+              @if (registerForm.controls['userName'].invalid  &&registerForm.controls['userName'].touched) {
+                @if (registerForm.controls['userName'].errors?.['required']) {
+                  <span class="text-danger fs-6  bg-warning w-100" > This field is required </span>
+                }@if (registerForm.controls['userName'].errors?.['minlength']) {
+                  <span class="text-danger fs-6  bg-warning w-100">Min length is 3 </span>
+                }
+                }@if (registerForm.controls['userName'].errors?.['maxlength']) {
+                  <span class="text-danger fs-6  bg-warning w-100">Max length is 20 </span>
+                }
+                @if (registerForm.controls['userName'].errors?.['pattern']) {
+                  <span class="text-danger fs-6  bg-warning w-100">must be first word capital  </span>
+                }
+
+          </div>
+          <div class="form-item">
+            <label for="email">Email </label>
+            <input
+            type="email"
+             name="email"
+              id="email"
+               class="form-control"
+               formControlName="email"
+
+               />
+               @if (registerForm.controls['email'].invalid  &&registerForm.controls['email'].touched){
+               @if (registerForm.controls['email'].errors?.['required']) {
+                 <span class="text-danger fs-6  bg-warning w-100"> This field is required </span>
+               } @if (registerForm.controls['email'].errors?.['email']) {
+                <span class="text-danger fs-6  bg-warning w-100"> This field is not email </span>
+              }
+             }
+          </div>
+          <div class="form-item">
+            <label for="password">Password </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              formControlName="password"
+
+            />
+            @if (registerForm.controls['password'].invalid  &&
+                registerForm.controls['password'].touched &&
+                registerForm.controls['password'].parent
+              ) {
+                @if (registerForm.controls['password'].errors?.['required']) {
+                  <span class="text-danger fs-6  bg-warning w-100"> This field is required </span>
+                }@if (registerForm.controls['password'].errors?.['minlength']) {
+                  <span class="text-danger fs-6  bg-warning w-100">Min length is 3 </span>
+                }@if (registerForm.controls['password'].errors?.['pattern']) {
+                  <span class="text-danger fs-6  bg-warning w-100">must be one lettter capital  </span>
+                }
+              }
+
+          </div>
+          <div class="form-item">
+            <label for="rePassword">Re Password</label>
+            <input
+              type="password"
+              name="password"
+              id="rePassword"
+              class="form-control"
+              formControlName="rePassword"
+
+            />
+            @if (registerForm.controls['rePassword'].invalid  &&registerForm.controls['rePassword'].touched){
+              @if (registerForm.controls['rePassword'].errors?.['required']) {
+                <span class="text-danger fs-6  bg-warning w-100"> This field is required </span>
+              }@if (registerForm.controls['rePassword'].errors?.['mismatch']) {
+                <span class="text-danger fs-6  bg-warning w-100">must be one lettter capital  </span>
+              }
+            }
+          </div>
+          <div class="form-item">
+            <label for="phone">phone</label>
+            <input
+              type="phone"
+              name="phone"
+              id="phone"
+              class="form-control"
+              formControlName="phone"
+
+            />
+            @if (registerForm.controls['phone'].invalid  &&registerForm.controls['phone'].touched){
+              @if (registerForm.controls['phone'].errors?.['required']) {
+                <span class="text-danger fs-6  bg-warning w-100"> This field is required </span>
+              }@if (registerForm.controls['phone'].errors?.['pattern']) {
+                <span class="text-danger fs-6  bg-warning w-100">must be start (002) number of Egypt </span>
+              }
+            }
+          </div>
+
+          <button  class=" btn btn-primary mt-3"[disabled]="registerForm.invalid">Resgister</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

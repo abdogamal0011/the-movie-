@@ -1,0 +1,13 @@
+.caption
+{
+background: rgba(0, 0, 0, 0.5);
+color: #fff;
+position: absolute;
+top: 0;
+left: 0%;
+opacity: 1;
+transition: all 0.5s;
+}
+.layer:hover .caption{
+  opacity: 0;
+}

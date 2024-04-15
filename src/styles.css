@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,500;0,600;0,800;0,900;1,700;1,800&family=Roboto:ital,wght@0,300;0,500;1,700&family=Yanone+Kaffeesatz:wght@200;300;500;600;700&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,500;0,600;0,800;0,900;1,700;1,800&family=Roboto:ital,wght@0,300;0,500;1,700&display=swap');
+  :root{
+    --mainColor:#0D253F;
+    --secondColor:#2EBCCF;
+    --thirdColor:#8BCDA4;
+    --border:0.5px solid white;
+    --box-shadow: rgba(200, 218, 236, 0.989) 0px 2px 4px -1px ,
+      rgba(255, 255, 255, 0.982) 0px 4px 5px 0px ,
+      rgba(237, 238, 239, 0.8) 0px 1px 10px 0px ;
+    --font-family: 'Fira Sans', sans-serif;
+    --rating-color:#ffc908;
+    --mainTransition:0.8s;
+  }
+  .movie{
+    background-color: #fff;
+    color: #0D253F;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+  }
+  body{
+    font-family: var(--font-family);
+    background-color: #242E34;
+  }
+
+  .text-main{
+    color: var(--mainColor);
+  }
+  .bg-main{
+    color: var(--thirdColor);
+    background-color:var(--mainColor);
+  }
+  .bg-main-color{
+    background-color: var(--secondColor) ;
+  }
+  .rating-color{
+    color: var(--rating-color);
+  }
+  .main-btn{
+    border: unset;
+    cursor: pointer;
+    color: #fff;
+    background-color:var(--mainColor);
+    padding:4px 8px;
+    transition: all var(--mainTransition);
+    border-radius: 5px;
+  }
+  .main-btn:disabled{
+    background-color:#3b6fa77c;
+    color: #ffffffd2;
+    cursor: not-allowed;
+  }
+  .movie{
+    border: 1px solid var(--mainColor);
+    border-radius:5px ;
+    padding: 4px;
+    box-shadow: var(--box-shadow);
+  }
+  textarea{
+    border: unset;
+  }
+
+

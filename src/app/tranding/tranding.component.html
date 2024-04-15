@@ -1,0 +1,22 @@
+<section class="mt-5">
+<div class="container">
+
+  <div class="row g-3">
+    @for (actor of listPeople; track actor.id) {
+
+      <div class="col-md-4 overflow-hidden" (click)="handleNavigation(actor.id)">
+        <div class="layer position-relative w-100">
+          <div class="image ">
+            <img [src]="'https://image.tmdb.org/t/p/w500/'+actor.profile_path" height="350" class="w-100 shadow rounded" [alt]="actor.name">
+          </div>
+          <div class="caption w-100 h-100 d-flex justify-content-center align-items-center rounded movie ">
+            <h1>{{actor.name}}</h1>
+          </div>
+        </div>
+      </div>
+
+    }
+  </div>
+</div>
+
+</section>

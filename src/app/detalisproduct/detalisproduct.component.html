@@ -1,0 +1,69 @@
+<div class="container ">
+  <div class="row p-2 mt-5 movie ">
+
+    <div class="col-md-5 ">
+      <div class="image">
+        @if (productList.backdrop_path !=null) {
+
+
+          <img [src]="'https://image.tmdb.org/t/p/w500/'+productList.backdrop_path" class="w-100" [alt]="productList.title">
+        }
+      </div>
+      <div class=" image2 w-100 p-2 d-flex justify-content-center align-items-center">
+       @for(image of productList.production_companies; track image.id){
+
+          <div class="icons p-2 ">
+            @if (image.logo_path!=null) {
+
+              <img [src]="'https://image.tmdb.org/t/p/w500/'+image.logo_path" class="w-100" height="150" alt="">
+            }
+          </div>
+        }
+      </div>
+    </div>
+    <div class="col-md-1 border-end"></div>
+      <div class="col-md-6   p-3 border-2  text-main">
+
+        <div class="layer ">
+
+          <h1>{{productList.title}}</h1>
+          <ul class="list-unstyled ">
+            <li>
+              <p><b>description : </b> {{productList.overview}}</p>
+            </li>
+            <li>
+              <p><b>language :</b> {{productList.original_language}}</p>
+            </li>
+            <li>
+              @for (star of [1,2,3,4,5]; track $index) {
+
+                <i [class.fa-solid]="productList.vote_average-5 >=star" class="fa-regular fa-star rating-color "></i>
+              }
+
+            </li>
+          </ul>
+            <ul class=" list-unstyled d-flex justify-content-between align-items-center">
+
+              <li>
+                <h5>production companies <br>
+                  @for (item of productList.production_companies ; track $index) {
+
+                    <span class="lead py-1">{{$index}}-{{item.name }}<br> </span>
+                  }
+                </h5>
+
+              </li>
+              <li >
+                <p > {{productList.release_date}}</p>
+                <a href="{{productList.homepage}}" target="_blank" class=" text-decoration-none rating-color"> WATCH </a>
+              </li>
+            </ul>
+
+            <button class="btn main-btn " (click)="addproduct(productList.id)">ADD wishlist</button>
+            <button class="btn main-btn " (click)="handleNavigation(productList.id)">show image</button>
+
+
+        </div>
+      </div>
+  </div>
+</div>
